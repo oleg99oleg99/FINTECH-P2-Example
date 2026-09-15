@@ -15,6 +15,6 @@ Worked example for **Project 2 — The Strategy Lab** (FINA 4075/5075, FinTech F
 | `monitoring_log.md` | Entry 0 (both tracks' September holdings), then one entry per checkpoint. Track 2 picks are pasted verbatim. |
 | `AI_Audit_Note.md` | Individual AI audit note (tool log, prompts, errors caught, verification table). |
 | `FINA4075_P2_StrategyLab.ipynb` | The Colab notebook that produces every number: hash check, backtest exhibit, hand check, briefing generator, entry-0 selection. |
-| `panel_returns_2026-08-31.csv` | The returns panel (added via **Add file → Upload files** to preserve its exact bytes; SHA-256 `c9d3340eba3a3301a63bb788c87f1d6e9e55de58a3fec16b12a34b313cac076b`, matching the Data Dictionary). At each checkpoint the dated extension file is committed here too. |
+| `panel_returns_2026-08-31.csv` | The returns panel (committed with its exact bytes preserved — the walkthrough uses **Add file → Upload files** for a data CSV; SHA-256 `c9d3340eba3a3301a63bb788c87f1d6e9e55de58a3fec16b12a34b313cac076b`, matching the Data Dictionary). At each checkpoint the dated extension file is committed here too. |
 
 Nothing here concludes anything about the strategy — three live months have not happened yet. The point of the commit is to lock both portfolios before they can be scored.
