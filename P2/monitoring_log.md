@@ -36,18 +36,50 @@ Nothing is concluded from entry 0: three live months have not happened. The purp
 lock both portfolios under the commit hash before the evaluation window opens.
 
 --------------------------------------------------------------------------------
-CHECKPOINT 1 — target Sun 10/11/2026 — commit hash <9/20 hash> quoted   [TEMPLATE — not yet due]
+CHECKPOINT 1 — committed Mon 10/5/2026 (due Sun 10/11/2026) — pre-registration commit 293cd99 quoted
 --------------------------------------------------------------------------------
-New month added: September 2026 (extension file panel_returns_2026-09-30.csv, posted within two days
-of month-end; run that day; commit the dated file with this entry and confirm its SHA-256).
-1. Rerun strategy.py unchanged on the extended panel; confirm its September holdings match entry 0's
-   Track 1 list to the name (20/20). A mismatch means the code or the data vintage changed.
-2. Score entry-0 holdings on September's return: Track 1 __%, Track 2 __%, EW benchmark __% (month).
-3. Record October holdings, chosen from data through 9/30:
-   TRACK 1 (locked rule): [20 tickers]
-   TRACK 2 (frozen prompt) run once on the 9/30 briefing table (date/time): [20 tickers, verbatim]
-4. Attribution, 3–5 sentences: which side led, whether the gap is inside the pre-registered placebo
-   span, and what (if anything) the one month changes — which is almost always "nothing yet."
+(293cd99 is the commit that locked the rules, code, prompt, red-team log and entry 0 on 9/15; the panel
+file was added in 111e4f8 and the last pre-deadline commit is 0e9a61c. A student pair quotes its single
+9/20 hash here.)
+
+New month added: September 2026. Extension file panel_returns_2026-09-30.csv — 93 rows, the 92 released
+rows unchanged plus 2026-09-30; posted 10/5/2026; SHA-256
+d9417fdf2892769b1662aeb6a82b13d6f96199416ae8b082977b5d3f43e8acea (matches the Data Dictionary) —
+committed with this entry. Rerun the same day the file posted.
+
+1. Rerun check. strategy.py is byte-identical to the 9/20 commit. Run unchanged on the extended panel, it
+   selects the same September 2026 portfolio as entry 0: 20/20 names match (window Sep 2025 – Feb 2026,
+   rows 80–85). Code and data vintage are intact.
+
+2. Entry-0 holdings scored on September 2026 (equal weights; the first live month counts as a full
+   purchase for both tracks, cost = 2 x 0.0010 x 1.0 = 0.20%; benchmark = equal-weighted panel, no costs):
+   Mechanical (Track 1): gross -3.43%, net -3.63%, gap vs benchmark +2.15pp  |  LLM (Track 2): gross
+   -0.64%, net -0.84%, gap vs benchmark +4.94pp  |  Benchmark (EW, 200 names): -5.78% (month).
+   Biggest movers inside the lists: FORM +48.4%, VIAV +15.5%, AMRX +15.3%, MTRN +14.2% up; IONS -26.0%,
+   BTU -17.9%, FRPT -17.6%, OII -15.7%, EAT -15.3%, HP -14.8% down.
+
+3. October 2026 holdings, chosen from data through 9/30/2026:
+   TRACK 1 (locked rule) — signal window Oct 2025 – Mar 2026 (rows 81–86); 20 names, equal weight,
+   alphabetical:
+   CWEN, FORM, GMED, HCC, HP, IRDM, KEX, LNTH, MSGS, MTDR, MUR, NOV, NYT, OII, PBF, PTEN, SLAB, TDW, VIAV, WLK
+   11 of 20 names replaced versus September (October one-way turnover 0.55; cost 0.11%, charged when
+   October is scored). Dropped: AMRX, AROC, BTU, CNX, DY, FLS, FRPT, IONS, LUMN, MTRN, PSMT.
+   TRACK 2 (frozen prompt) — run once on the 9/30/2026 briefing table: Mon 10/5/2026, 12:55 AM Central.
+   Claude Fable 5.1 (effort "Max"), claude.ai, new empty chat, web search and memory off, no files beyond
+   the pasted table; the message was the committed prompt, one blank line, the table unedited. Output
+   parsed on the first try (exactly 20 valid, distinct tickers; no prose); no retry. October picks pasted
+   verbatim, in the model's order:
+   PBF, DK, PTEN, WHD, TDW, SM, HAE, AMRX, RGEN, BIO, BRKR, ICUI, CHEF, EAT, QLYS, AVT, HCC, STGW, ZD, AMG
+   Overlap of the two October lists: 4 of 20 (HCC, PBF, PTEN, TDW).
+
+4. Attribution. Both tracks beat the equal-weighted panel in a month when the panel itself fell 5.8%,
+   and the frozen analyst beat the rule. The rule's energy names (BTU, CNX, HP, NOV, OII, PTEN) led its
+   losses while FORM, VIAV, AMRX and MTRN offset most of them; the analyst had skipped the coal and gas
+   names, held AMRX, MTRN and AVT, and its refiners (PBF, DK) held up. Run on September alone, the
+   pre-registered placebo (1,000 random 20-stock portfolios, same costs) puts Track 1's +2.15pp at the
+   90th percentile and Track 2's +4.94pp at the 99.6th — an unusual month for the analyst, but the 5th to
+   95th percentile band of one-month gaps is -2.8pp to +3.1pp, so one month distinguishes nothing; the
+   three-month test in December is the evidence, and nothing in the rules, the code or the prompt changes.
 
 --------------------------------------------------------------------------------
 CHECKPOINT 2 — target Sun 11/8/2026   [TEMPLATE — not yet due]
