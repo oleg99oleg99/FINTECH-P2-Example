@@ -82,11 +82,60 @@ committed with this entry. Rerun the same day the file posted.
    three-month test in December is the evidence, and nothing in the rules, the code or the prompt changes.
 
 --------------------------------------------------------------------------------
-CHECKPOINT 2 — target Sun 11/8/2026   [TEMPLATE — not yet due]
+CHECKPOINT 2 — committed Mon 11/2/2026 (due Sun 11/8/2026) — pre-registration commit 293cd99 quoted
 --------------------------------------------------------------------------------
-New month: October 2026. Rerun; confirm October holdings match checkpoint 1's Track 1 list. Score
-the checkpoint-1 holdings on October. Record November holdings for both tracks (LLM run once on the
-10/31 table). Attribution.
+(293cd99 is the commit that locked the rules, code, prompt, red-team log and entry 0 on 9/15. A student
+pair quotes its single 9/20 hash here.)
+
+New month added: October 2026. Extension file panel_returns_2026-10-31.csv: 94 rows, the 93 rows of the
+checkpoint-1 file unchanged plus October 2026, dated 2026-10-30 (the last trading day; 10/31 was a
+Saturday); posted 11/2/2026; SHA-256
+f4732d3f86648720cb7de55cb7139ab788da8cd7872da9cad11420a5eac5da27 (matches the Data Dictionary),
+committed with this entry. Rerun the same day the file posted.
+Universe change: QRVO (Qorvo) was acquired by Skyworks (merger closed 10/5/2026, last trade 10/2). The
+file carries its final partial-month October return (-0.27%), so it counts in October's benchmark, and
+it leaves the universe from November (Data Dictionary, Section 4). Neither track held it.
+
+1. Rerun check. strategy.py is byte-identical to the 9/20 commit. Run unchanged on the extended panel, it
+   selects the same October 2026 portfolio as checkpoint 1: 20/20 names match (window Oct 2025 - Mar 2026,
+   rows 81-86). Code and data vintage are intact.
+
+2. Checkpoint-1 holdings scored on October 2026 (equal weights; cost = 2 x 0.0010 x turnover versus the
+   September portfolio; benchmark = equal-weighted panel, no costs):
+   Mechanical (Track 1): gross +2.44%, turnover 0.55, cost 0.11%, net +2.33%, gap vs benchmark -3.31pp
+   LLM (Track 2): gross +4.91%, turnover 0.45, cost 0.09%, net +4.82%, gap vs benchmark -0.82pp
+   Benchmark (EW, 200 names): +5.64% (month).
+   Live record so far, September and October compounded: Track 1 -1.39% (gap -0.91pp)  |  Track 2 +3.94%
+   (gap +4.41pp)  |  Benchmark -0.47%.
+   Biggest movers inside the lists: STGW +28.6%, PTEN +22.0%, QLYS +19.7%, SM +19.5%, MUR +18.7%,
+   MTDR +18.0% up; FORM -41.4%, VIAV -28.6%, BRKR -11.9%, AVT -11.8%, RGEN -8.0% down.
+
+3. November 2026 holdings, chosen from data through 10/30/2026:
+   TRACK 1 (locked rule): signal window Nov 2025 - Apr 2026 (rows 82-87); 20 names, equal weight,
+   alphabetical:
+   AROC, AVT, ESI, FORM, HP, IRDM, MSGS, MTDR, MTRN, MUSA, OII, PLXS, PTEN, R, SAIA, SLAB, SM, TDW, VIAV, WLK
+   9 of 20 names replaced versus October (November one-way turnover 0.45; cost 0.09%, charged when
+   November is scored). Dropped: CWEN, GMED, HCC, KEX, LNTH, MUR, NOV, NYT, PBF. QRVO ranks 135th on the
+   signal, so its exit does not touch this list.
+   TRACK 2 (frozen prompt): run once on the 10/30/2026 briefing table, Mon 11/2/2026, 5:31 PM Central.
+   Claude Fable 5.1 (effort "Max"), claude.ai, new empty chat, memory and connectors off, no files beyond
+   the pasted table; the message was the committed prompt, one blank line, the table unedited (all 200
+   rows, QRVO included). The claude.ai composer no longer has a web-search switch; the reply shows no
+   search or other tool call. Output parsed on the first try (exactly 20 valid, distinct tickers; no
+   prose); no retry. November picks pasted verbatim, in the model's order:
+   HAE, AMRX, ITGR, LNTH, PBF, DK, PTEN, SM, CVI, QLYS, SAIC, SLAB, CVLT, STGW, IRDM, MSGS, EAT, CROX, TTC, AVNT
+   No exited name picked. 11 of 20 names replaced versus October (turnover 0.55; cost 0.11%, charged in
+   November). Overlap of the two November lists: 5 of 20 (IRDM, MSGS, PTEN, SLAB, SM).
+
+4. Attribution. October reversed September: the panel rose 5.6% and both tracks trailed it. The rule's
+   two best September names, FORM and VIAV, fell 41% and 29% and cost it 4.1 points against the
+   benchmark, more than its whole 3.3-point gap; PTEN, MUR, MTDR and HP added back 2.6 points. The
+   analyst's winners and losers nearly cancelled (STGW, PTEN, QLYS and SM +3.4 points; BRKR, AVT, RGEN and
+   CHEF -3.1 points). Two months in, the pre-registered placebo (the same 1,000 draws, bought and held,
+   same costs) puts Track 1's -0.91pp at the 37th percentile and Track 2's +4.41pp at the 98th; the 5th to
+   95th percentile band of two-month gaps is -3.9pp to +3.5pp. The analyst's lead is unusual but rests on
+   two months; the three-month test in December is the evidence, and nothing in the rules, the code or
+   the prompt changes.
 
 --------------------------------------------------------------------------------
 CHECKPOINT 3 — target Sun 12/6/2026   [TEMPLATE — not yet due]

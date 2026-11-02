@@ -1,8 +1,8 @@
 # AI Audit Note (individual) — FINTECH-P2-Example
 
 Instructor's worked example of the individual AI Audit Note. This copy covers the AI used through the
-9/20 pre-registration and checkpoint 1 (10/5/2026); the version submitted with the December final report
-adds checkpoints 2 and 3 and the report-writing AI use. Four standing elements (Semester Overview): tool log; most effective prompts;
+9/20 pre-registration, checkpoint 1 (10/5/2026) and checkpoint 2 (11/2/2026); the version submitted with
+the December final report adds checkpoint 3 and the report-writing AI use. Four standing elements (Semester Overview): tool log; most effective prompts;
 AI errors caught with evidence; verification table. No student names appear in any AI-facing file
 (AI Data Use Protocol); the panel is Level 1 public data.
 
@@ -12,6 +12,7 @@ AI errors caught with evidence; verification table. No student names appear in a
 | Google Gemini 2.5 Pro, gemini.google.com | Red-team of strategy_rules.md (Step 6): find ambiguities a dishonest researcher could exploit | The rules file only (no returns) |
 | Claude Fable 5.1 (effort "Max"), claude.ai | The frozen Track 2 analyst itself — the deliverable, not a coding aid; run once on the 8/31 briefing table | The standardized briefing table (Level 1 public returns) |
 | Claude Fable 5.1 (effort "Max"), claude.ai | Checkpoint 1: the same frozen analyst, run once on the 9/30 briefing table (Mon 10/5/2026, 12:55 AM Central; new empty chat, web search and memory off) | The 9/30 briefing table only |
+| Claude Fable 5.1 (effort "Max"), claude.ai | Checkpoint 2: the same frozen analyst, run once on the 10/30 briefing table (Mon 11/2/2026, 5:31 PM Central; new empty chat, memory and connectors off; the composer no longer offers a web-search switch, and no search was run) | The 10/30 briefing table only |
 | Claude Fable 5.1, claude.ai | AI-assisted coding of the backtest and briefing generator (the course coding loop) | Panel rows (Level 1 public returns) |
 
 The frozen analyst is a special case: its output is Track 2's data, so it is run under the contract in
@@ -62,6 +63,26 @@ pull before appending September reproduced the released panel's August row for 1
 exactly; five names (SM, SLGN, REXR, KRG, IRT) differed by 0.000001 in the last decimal because Yahoo
 had re-adjusted those series for a later dividend. The released rows were left untouched (the posted
 file is authoritative); only the September row was appended, and its hash is in the Data Dictionary.
+(5) Checkpoint 2, the same behavior a third time. The 11/2 run's visible reasoning labels included
+"Weighing sector limits against the energy momentum cluster", "Checking the energy weighting and sector
+caps" and "Settling the sector mix and final stock picks", plus "Weighing the academic evidence on
+reversals and earnings drift": the model again imposed its own sector cap and brought in outside
+knowledge (published research), although the prompt confines it to the table. The output was well-formed
+(20 valid, distinct tickers, first try) and was pasted verbatim; the picks landed 5 Energy, 4 Health
+Care, 4 Information Technology, 3 Communication Services, 2 Consumer Discretionary, 1 Industrials and 1
+Materials. Logged as a model-risk observation; the prompt is not changed.
+(6) The tool changed under the frozen settings. On 11/2 the claude.ai composer had no web-search switch,
+and the saved conversation record lists web search as enabled, while llm_analyst_prompt.md says web
+search is OFF. The reply contains no search or other tool call (reasoning and text only), so the
+information set was still the table alone, and the run stands. The deviation is recorded here rather than
+fixed by editing the prompt file, which would be a rule change (P0). If a future run did search, that run
+would breach the contract and would be logged as such.
+(7) Data integrity at checkpoint 2. Rebuilding September 2026 from the fresh Yahoo pull reproduced the
+released September row exactly for all 199 continuing names. QRVO (Qorvo) was acquired by Skyworks on
+10/5/2026 (last trade 10/2), so the extension file carries its final partial-month October return
+(-0.27%) and the name leaves the universe from November; MSGS spun off MSG Rangers on 10/26 and its
+October return uses Yahoo's spin-off-adjusted closes. Both are noted in the extension workbook and the
+Data Dictionary.
 
 ## 4. Verification table (key numbers → primary source, retrieval date)
 | Number | Value | Primary source | Retrieved |
@@ -75,6 +96,11 @@ file is authoritative); only the September row was appended, and its hash is in 
 | Rerun check (checkpoint 1) | strategy.py unchanged; September holdings = entry 0, 20/20 | FINA4075_P2_StrategyLab_2026-09-30.ipynb, Cell 12 | 10/5/2026 |
 | September 2026 scores | Track 1 −3.63% net, Track 2 −0.84% net, EW benchmark −5.78% | notebook Cell 13 on the posted extension file | 10/5/2026 |
 | Track 2 October picks | 20 valid distinct tickers, parsed first try; overlap with Track 1 4/20 | claude.ai Fable 5.1 Max run 10/5/2026, outputs/track2_run_2026-09-30_screenshot.jpg | 10/5/2026 |
+| Extension file integrity (checkpoint 2) | SHA-256 f4732d3f… matches the Data Dictionary; 94 x 200, no missing values | panel_returns_2026-10-31.csv (Yahoo Finance, pulled 11/2/2026) + hashlib in the notebook | 11/2/2026 |
+| Rerun check (checkpoint 2) | strategy.py unchanged; October holdings = checkpoint 1, 20/20 | FINA4075_P2_StrategyLab_2026-10-31.ipynb, Cell 12 | 11/2/2026 |
+| October 2026 scores | Track 1 +2.33% net, Track 2 +4.82% net, EW benchmark +5.64%; Sep–Oct compounded −1.39% / +3.94% / −0.47% | notebook Cell 13 on the posted extension file | 11/2/2026 |
+| Placebo, two months | Track 1 gap −0.91pp at the 37th percentile, Track 2 +4.41pp at the 98th | notebook Cell 15 (seed 4075, 1,000 draws) | 11/2/2026 |
+| Track 2 November picks | 20 valid distinct tickers, parsed first try; no exited name; overlap with Track 1 5/20 | claude.ai Fable 5.1 Max run 11/2/2026, outputs/track2_run_2026-10-30_screenshot.jpg | 11/2/2026 |
 
 Note on this example's construction: the exemplar was assembled with Claude (Cowork) driving the code
 and browser steps; a student's own Audit Note would name whichever tools they used. The discipline is
